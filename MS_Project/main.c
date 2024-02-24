@@ -11,6 +11,5 @@ int main(void)
 	routeMap = addRoute(&routeMap, &greenRoute);
 
 	printMap(&routeMap, 1, 1);
-
 	return 0;
 }
