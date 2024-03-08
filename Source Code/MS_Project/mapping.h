@@ -13,9 +13,9 @@
 /**
 * A map is a 2D raster representation of a map with contents of the map encoded as numeric values.
 */
-struct Map
+struct Map	
 {
-	int squares[MAP_ROWS][MAP_COLS];	//rows, columns
+	int squares[MAP_ROWS][MAP_COLS];	//rows, columns, 2d array of integers
 	int numRows;	//num of rows
 	int numCols;	//num of columns
 };
@@ -37,14 +37,14 @@ struct Route
 {
 	struct Point points[MAX_ROUTE];		//array of points
 	int numPoints;						//number of points
-	char routeSymbol;	
+	char routeSymbol;					//(B)lue, (G)reen, (Y)ellow
 };
 
 /**
 * Create a map with the position of all buildings in it.
-* @returns - a map with the position of all buildings added to it.
+* @returns - a map struct with the position of all buildings added to it.
 */
-struct Map populateMap();
+struct Map populateMap();	
 
 /**
 * Get the number of rows in a map.
