@@ -16,6 +16,23 @@ struct Truck {
 	struct Route route;
 };
 
+struct Shipment {
+	double weight;				//weight of shipment in kg
+	double box_size;			//box size in cubic metres
+	struct Point dest;	//destination of shipment, delivery point
+};
+
+
+int isValidInput(const struct Point pt)
+{
+	//TODO: validate location
+
+	//TODO: validate weight
+
+	//TODO: 
+
+	//TODO:
+
 #endif // !TRUCK_H
 
 
