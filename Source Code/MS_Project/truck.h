@@ -23,15 +23,8 @@ struct Shipment {
 };
 
 
-int isValidInput(const struct Point pt)
-{
-	//TODO: validate location
-
-	//TODO: validate weight
-
-	//TODO: 
-
-	//TODO:
+int isValidInput(const struct Shipment* shipment);
+//TODO: validate location, weight, truck volume, box size
 
 #endif // !TRUCK_H
 
