@@ -12,3 +12,4 @@ int getTruckRoute(struct Truck* truck, const struct Route* route)
 	return 0;
 }
 
+
