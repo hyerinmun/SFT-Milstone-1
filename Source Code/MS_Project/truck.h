@@ -47,14 +47,14 @@ int getTruckRoute(struct Truck* truck, const struct Route* route);
 /// All our boxes are square, meaning that they have the same dimensions on all sides.
 /// This function assesses the validity of a given box size.
 /// The input parameter 'boxsize' represents the size of the box to be examined.
-/// Within the function, three constant values('1/2,' '1,' and '5') are defined to establish the acceptable box sizes.
+/// Within the function, three constant values('1/2 (SIZE_SM)' '1 (SIZE_MED)' and '5 (SIZE_LG)') are defined to establish the acceptable box sizes.
 /// </summary>
 /// <param name="box_size">box size that will be loaded on the truck</param>
 /// <returns>true (1) if valid which means they are one of size among three constant values</returns>
 int isValidSize(double box_size);
 
 /// <summary>
-/// The trucks are also capable of carrying 50 cubic meters of boxes.
+/// The trucks are also capable of carrying 50 cubic meters (MAX_VOL) of boxes.
 /// This function evaluates whether adding a box to a truck exceeds its volume capacity.
 /// </summary>
 /// <param name="truck"> truck on the route</param>
@@ -63,7 +63,7 @@ int isValidSize(double box_size);
 int isValidVolume(struct Truck truck, double box_size );
 
 /// <summary>
-/// All our trucks are the same size and can hold up to 1200 kg of cargo
+/// All our trucks are the same size and can hold up to 1200 kg (MAX_WEIGHT) of cargo
 /// This function assesses whether a truck becomes overloaded after incorporating a shipment.
 /// If the current weight capacity of the truck is less than or equal to 1200, 
 /// it adds the weight of the shipment to the truck's capacity. 
