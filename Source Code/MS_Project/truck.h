@@ -29,11 +29,11 @@ struct Shipment {
 	};
 
 /// <summary>
-/// Validates location, weight, truck volume, box size from user input (passed as param)
+/// Prompts user to enter information about a shipment. Validates location, weight, truck volume, box size from user input (passed as param)
 /// </summary>
 /// <param name="shipment">user input, info about shipment</param>
-/// <returns>true (1) if valid</returns>
-int isValidInput(const struct Shipment* shipment);
+/// <returns>true (1) if valid, else returns -1 for invalid</returns>
+int getInput(const struct Shipment* shipment);
 
 /// <summary>
 /// gets truck route for given truck passed
@@ -43,8 +43,6 @@ int isValidInput(const struct Shipment* shipment);
 /// <returns>true (1) if route successfully found</returns>
 int getTruckRoute(struct Truck* truck, const struct Route* route);
 
-
-
 /// <summary>
 /// This function assesses the validity of a given box size that will be loaded on the truck. 
 /// The input parameter 'boxSize' represents the size of the box to be examined.
@@ -52,7 +50,7 @@ int getTruckRoute(struct Truck* truck, const struct Route* route);
 /// </summary>
 /// <param name="boxSize">box size that will be loaded on the truck</param>
 /// <returns>true (1) if valid which means they are one of size among three constant values</returns>
-int isValidSize(double boxSize);
+int isValidSize(const double* boxSize);
 
 /// <summary>
 /// This function evaluates whether adding a box to a truck exceeds its volume capacity.
@@ -60,8 +58,8 @@ int isValidSize(double boxSize);
 /// </summary>
 /// <param name="truck"> truck on the route</param>
 /// <param name="box_size">box size that will be loaded on the truck</param>
-/// <returns>true (1) if valid which means the volume is more than 0 and less than equal to 50.</returns>
-int isValidVolume(struct Truck truck, double box_size );
+/// <returns>true (1) if valid which means the volume is more than 0 and less than equal to 50, else returns -1 for invalid</returns>
+int isValidVolume(const double* volume);
 
 /// <summary>
 /// This function assesses whether a truck becomes overloaded after incorporating a shipment.
@@ -72,16 +70,16 @@ int isValidVolume(struct Truck truck, double box_size );
 /// </summary>
 /// <param name="truck">truck with its weight</param>
 /// <param name="shipment">shipment with its weight</param>
-/// <returns>true (1) if valid which means the weight is more than 0 and less than equal to 1200</returns>
-int isValidWeight(struct Truck truck, struct Shipment shipment);
+/// <returns>true (1) if valid which means the weight is more than 0 and less than equal to 1200, else returns -1 for invalid</returns>
+int isValidWeight(const double* weight);
 
 /// <summary>
-/// This function checks if the valid path is intersecting with building
+/// This function checks if the passed path argument does not intersect with building
 /// </summary>
 /// <param name="route"> valid truck route</param>
 /// <param name="map"> map structure </param>
-/// <returns></returns>
-int isvalidLocation(const struct Route route, const struct Map* map);
+/// <returns>true (1) if valid, else returns -1 for invalid</returns>
+int isvalidLocation(const struct Route* route, const struct Map* map);
 #endif // !TRUCK_H
 
 
