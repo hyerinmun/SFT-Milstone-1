@@ -57,9 +57,9 @@ int isValidSize(const double* boxSize);
 /// The trucks are also capable of carrying 50 cubic meters (MAX_VOL) of boxes.
 /// </summary>
 /// <param name="truck"> truck on the route</param>
-/// <param name="box_size">box size that will be loaded on the truck</param>
+/// <param name="volume">volume of shipment that will be loaded on the truck</param>
 /// <returns>true (1) if valid which means the volume is more than 0 and less than equal to 50, else returns -1 for invalid</returns>
-int isValidVolume(const double* volume);
+int isValidVolume(const struct Truck* truck, const double* volume);
 
 /// <summary>
 /// This function assesses whether a truck becomes overloaded after incorporating a shipment.
@@ -68,10 +68,17 @@ int isValidVolume(const double* volume);
 /// it adds the weight of the shipment to the truck's capacity. 
 /// After the addition check if the updated capacity remains less than or equal to 1200. 
 /// </summary>
-/// <param name="truck">truck with its weight</param>
-/// <param name="shipment">shipment with its weight</param>
+/// <param name="weight">weight to compare to min/max range of truck's carrying capacity</param>
 /// <returns>true (1) if valid which means the weight is more than 0 and less than equal to 1200, else returns -1 for invalid</returns>
 int isValidWeight(const double* weight);
+
+/// <summary>
+/// Checks if the truck passed as argument has enough carrying capacity left to hold the given weight.
+/// </summary>
+/// <param name="truck2Check">truck to check capacity of</param>
+/// <param name="shipment">shipment whose weight is to be added</param>
+/// <returns> returns true (1) if truck DOES have space in it, else returns -1 if it's full</returns>
+int isTruckLoadable(const struct Truck* truck2Check, const struct Shipment* shipment);
 
 /// <summary>
 /// This function checks if the passed path argument does not intersect with building
@@ -80,6 +87,15 @@ int isValidWeight(const double* weight);
 /// <param name="map"> map structure </param>
 /// <returns>true (1) if valid, else returns -1 for invalid</returns>
 int isvalidLocation(const struct Route* route, const struct Map* map);
+
+/// <summary>
+/// Finds the truck whose route is nearest to the the bldg point.
+/// </summary>
+/// <param name="truck">truck whose route is being checked in relation to bldg point</param>
+/// <param name="bldg">point to get closest route to, destination</param>
+/// <returns>true (1) if truck passed is the closest to the bldg, else return -1 when it's not</returns>
+int findClosestTruck(const struct Truck* truck, const struct Point* bldg);
+
 #endif // !TRUCK_H
 
 
