@@ -41,7 +41,7 @@ int getInput(const struct Shipment* shipment);
 /// <param name="truck">truck on the route</param>
 /// <param name="route">route to add to truck</param>
 /// <returns>true (1) if route successfully found</returns>
-int getTruckRoute(struct Truck* truck, const struct Route* route);
+int getTruckRoute(const struct Truck* truck, const struct Route* route);
 
 /// <summary>
 /// This function assesses the validity of a given box size that will be loaded on the truck. 
